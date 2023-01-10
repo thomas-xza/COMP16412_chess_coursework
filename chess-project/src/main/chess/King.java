@@ -25,4 +25,5 @@ class King extends Piece{
 	boolean isLegitMove(int i0, int j0, int i1, int j1) {
 		return true;
 	}
+
 }
