@@ -37,11 +37,9 @@ class Bishop extends Piece{
 
 	    int move_j = Math.abs(i0 - i1);
 
-	    String target_square_piece = Board.getPiece(i1, j1).getSymbol()
-
 	    if ( (move_i + move_j != 0) &&
 		 (move_i == move_j) &&
-		 target_square_piece == ""
+		 Board.hasPiece(i1, j1) == false
 		 ) {
 		
 		return true;
