@@ -23,13 +23,18 @@ class Bishop extends Piece{
 	}
 
 
-    //    isLegitMove needs to check that:
-    //      - move is legal within rules of chess
-    //      - move is not zero
-    //      - move does not land on piece of same player
+    //  isLegitMove needs to check that:
+    //    - move is legal within rules of chess
+    //    - move is not zero
+    //    - move does not land on piece of same player
+    //    - move does not attempt to jump over another piece
+
+    //   The last condition is the hardest to check - it requires
+    //   checking the largest quantity of squares, especially for long
+    //   distance pieces with multiple potential directions.
     
-    //    Note that some code may be reusable across piece types - put
-    //    methods in Piece.java?
+    //   Note that some code may be reusable across piece types - put
+    //   methods in Piece.java?
 
     
     @Override
@@ -44,6 +49,8 @@ class Bishop extends Piece{
 	boolean target_exists = Board.hasPiece(i1, j1);
 
 	boolean target_exists_opponent = false;
+
+	boolean no_obstacles = true;
 
 	//  Set variable if moving into opponent's piece.
 
@@ -65,13 +72,35 @@ class Bishop extends Piece{
 
 	}
 
+	if ( legal_for_piece_type == true ) {
+
+	    int step_i = Integer.signum(i1 - i0);
+	    int step_j = Integer.signum(j1 - j0);
+
+	    //  NE =  1,  1
+	    //  NW = -1,  1
+	    //  SE =  1, -1
+	    //  SE = -1, -1	    
+
+	    int chk_sq_i = i0 + step_i;
+	    int chk_sq_j = j0 + step_j;
+
+	    while ( chk_sq_i != i1 ) {
+
+		if ( board.hasPiece(chk_sq_i, chk_sq_j) == true ) {
+
+		    no_obstacles = false;
+
+		}
+
+		chk_sq_i += step_i;
+		chk_sq_j += step_j;
+
+	    }
+
+	}
+
 	//  Make deductions based on facts available, return result.
-
-	System.out.println(legal_for_piece_type);
-
-	System.out.println(target_exists);
-
-	System.out.println(target_exists_opponent);
 
 	if ( legal_for_piece_type == true &&
 	     (target_exists == false ||
