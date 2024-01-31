@@ -67,6 +67,12 @@ class Bishop extends Piece{
 
 	//  Make deductions based on facts available, return result.
 
+	System.out.println(legal_for_piece_type);
+
+	System.out.println(target_exists);
+
+	System.out.println(target_exists_opponent);
+
 	if ( legal_for_piece_type == true &&
 	     (target_exists == false ||
 	      target_exists_opponent == true) ) {
