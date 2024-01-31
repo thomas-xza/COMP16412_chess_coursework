@@ -21,9 +21,40 @@ class King extends Piece{
 		return colour;
 	}
 
-	@Override
-	boolean isLegitMove(int i0, int j0, int i1, int j1) {
-		return true;
+    @Override
+    boolean isLegitMove(int i0, int j0, int i1, int j1) {
+
+	int move_i = Math.abs(i0 - i1);
+
+	int move_j = Math.abs(j0 - j1);
+
+	boolean legal_for_piece_type = false;
+
+	boolean target_valid = this.deduce_target_validity(i1, j1);
+
+	//  Set variable if final target legal for this piece type.
+
+	if ( (move_i > 0 || move_j > 0) &&
+	     (move_i < 2 && move_j < 2) ) {
+
+	    legal_for_piece_type = true;
+
 	}
+
+	//  Make deductions based on facts available, return result.
+
+	if ( legal_for_piece_type == true &&
+	     target_valid == true ) {
+
+	    return true;
+
+	} else {
+
+	    return false;
+
+	}
+
+
+    }
 
 }
