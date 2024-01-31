@@ -24,10 +24,16 @@ class Bishop extends Piece{
 
 	@Override
 	boolean isLegitMove(int i0, int j0, int i1, int j1) {
-	    if ( abs(i0 - i1) == abs(j0 - j1) ) {
+	    
+	    if ( Math.abs(i0 - i1) == Math.abs(j0 - j1) ) {
+		
 		return true;
+		
 	    } else {
+		
 		return false;
+		
 	    }
+	    
 	}
 }
