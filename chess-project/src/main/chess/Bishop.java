@@ -87,7 +87,7 @@ class Bishop extends Piece{
 
 	    while ( chk_sq_i != i1 ) {
 
-		if ( board.hasPiece(chk_sq_i, chk_sq_j) == true ) {
+		if ( Board.hasPiece(chk_sq_i, chk_sq_j) == true ) {
 
 		    no_obstacles = false;
 
