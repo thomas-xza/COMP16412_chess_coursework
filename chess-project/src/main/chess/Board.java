@@ -48,7 +48,7 @@ public class Board {
 		setPiece(7,7,new Rook(PieceColour.WHITE));
 	}
 
-	public static void printBoard(){
+	public static void printBoard() {
 		System.out.print("\n  a b c d e f g h \n");
 		System.out.print("  -----------------\n");
 
@@ -85,15 +85,15 @@ public class Board {
 		return kingCaptured;
 	}
 
-	public static void setPiece(int iIn, int jIn, Piece p){
+	public static void setPiece(int iIn, int jIn, Piece p) {
 		board[iIn][jIn].setPiece(p);
 	}
 
-	public static Piece getPiece(int iIn, int jIn){
+	public static Piece getPiece(int iIn, int jIn) {
 		return board[iIn][jIn].getPiece();
 	}
 
-	public static boolean hasPiece(int i, int j){
+	public static boolean hasPiece(int i, int j) {
 		return board[i][j].hasPiece();
 	}
 

@@ -10,11 +10,11 @@ public class Game {
 		Console input = System.console();
 
 		while (!gameEnd){
-				if (whitesTurn){
+				if (whitesTurn) {
 					System.out.println("");
 					System.out.println("------ Whites move -------");
 				}
-				else{
+				else {
 					System.out.println("");
 					System.out.println("------ Blacks move -------");
 				}
@@ -124,4 +124,5 @@ public class Game {
 		Board.printBoard();
 		Game.play();
 	}
+
 }
