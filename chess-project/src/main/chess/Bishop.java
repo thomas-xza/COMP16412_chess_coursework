@@ -46,11 +46,11 @@ class Bishop extends Piece{
 
 	boolean legal_for_piece_type = false;
 
+	boolean no_obstacles = true;
+
 	boolean target_exists = Board.hasPiece(i1, j1);
 
 	boolean target_exists_opponent = false;
-
-	boolean no_obstacles = true;
 
 	//  Set variable if moving into opponent's piece.
 
@@ -103,6 +103,7 @@ class Bishop extends Piece{
 	//  Make deductions based on facts available, return result.
 
 	if ( legal_for_piece_type == true &&
+	     no_obstacles == true &&
 	     (target_exists == false ||
 	      target_exists_opponent == true) ) {
 		
