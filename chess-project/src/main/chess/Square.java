@@ -1,9 +1,9 @@
 package chess;
 
 class Square {
+    
 	boolean hasPiece;
 	Piece p;
-
 
 	Piece getPiece(){
 		return p;

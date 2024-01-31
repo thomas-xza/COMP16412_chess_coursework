@@ -22,10 +22,27 @@ class Bishop extends Piece{
 		return colour;
 	}
 
+
+    //    isLegitMove needs to check that:
+    //      - move is legal within rules of chess
+    //      - move does not land on another piece
+    //      - move is not zero
+
+
+    
 	@Override
 	boolean isLegitMove(int i0, int j0, int i1, int j1) {
-	    
-	    if ( Math.abs(i0 - i1) == Math.abs(j0 - j1) ) {
+
+	    int move_i = Math.abs(i0 - i1);
+
+	    int move_j = Math.abs(i0 - i1);
+
+	    String target_square_piece = Board.getPiece(i1, j1).getSymbol()
+
+	    if ( (move_i + move_j != 0) &&
+		 (move_i == move_j) &&
+		 target_square_piece == ""
+		 ) {
 		
 		return true;
 		
