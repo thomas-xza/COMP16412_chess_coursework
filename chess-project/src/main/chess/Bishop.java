@@ -59,7 +59,7 @@ class Bishop extends Piece{
 
 	boolean no_obstacles = true;
 
-	boolean target_valid = deduce_target_validity(i1, j1);
+	boolean target_valid = this.deduce_target_validity(i1, j1);
 
 	//  Set variable if final target legal for this piece type.
 

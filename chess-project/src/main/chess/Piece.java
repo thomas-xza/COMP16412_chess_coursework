@@ -18,7 +18,7 @@ abstract class Piece {
 		return colour;
 	}
 
-    private boolean deduce_target_validity(int i1, int j1) {
+    protected boolean deduce_target_validity(int i1, int j1) {
 
         boolean target_exists = Board.hasPiece(i1, j1);
 
