@@ -25,15 +25,15 @@ class Pawn extends Piece{
     @Override
     boolean isLegitMove(int i0, int j0, int i1, int j1) {
 
-	//  Yikes, pawn moves in quirky ways.
+	//  Yikes, pawn moves in quirky ways. Tried to avoid checking
+	//  the piece colour and doing direction checking, instead
+	//  opted for some quick hacks.
 
 	int move_i = Math.abs(i0 - i1);
 
 	int move_j = Math.abs(j0 - j1);
 
 	boolean legal_for_piece_type = false;
-
-	boolean no_obstacles = true;
 
         boolean target_exists = Board.hasPiece(i1, j1);
 
@@ -52,22 +52,21 @@ class Pawn extends Piece{
 	//  Set variable if final target legal for this piece type.
 
 	if (target_exists_opponent == true &&
-	    move_j == 1 && move_i == 1) {
-
+	    move_i == 1 && move_j == 1) {
+	    
 	    //  Warning: this logic allows backwards diagonal moves...
 
 	    legal_for_piece_type = true;
 
 	} else if ( target_exists_opponent == false &&
+		    target_exists == false &&
 		    (
-		     (move_j == 1)
+		     (move_j == 1 && move_i == 0)  //  This will allow backwards moves...
 		     ||
-		     ( j0 == 1 && move_j == 2 && Board.hasPiece(i0, j0+1) == false )
+		     ( j0 == 1 && move_j == 2 && Board.hasPiece(i0, 2) == false )  //  This permits an edge case where opponent can make a double move towards end.
 		     ||
-		     ( j0 == 6 && move_j == 2 && Board.hasPiece(i0, j0-1) == false ) ) )
+		     ( j0 == 6 && move_j == 2 && Board.hasPiece(i0, 5) == false ) ) )
 	    {
-
-		//  Again quite hacky, some backwards allowances.
 
 	    legal_for_piece_type = true;
 	    
@@ -76,7 +75,6 @@ class Pawn extends Piece{
 	//  Make deductions based on facts available, return result.
 
 	if ( legal_for_piece_type == true &&
-	     no_obstacles == true &&
 	     (target_exists == false ||
 	      target_exists_opponent == true) ) {
 
