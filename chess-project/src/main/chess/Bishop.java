@@ -30,24 +30,6 @@ class Bishop extends Piece{
     //    - move does not land on piece of same player
     //    - move does not attempt to jump over another piece
     
-
-    // private boolean deduce_target_validity(int i1, int j1) {
-
-    // 	boolean target_exists = Board.hasPiece(i1, j1);
-
-    // 	boolean target_exists_opponent = false;
-
-    // 	//  Set variable if moving into opponent's piece.
-
-    // 	if (target_exists == true &&
-    // 	    (this.getColour() !=
-    // 	     Board.getPiece(i1,j1).getColour() ) ) {
-
-    // 	    target_exists_opponent = true;
-
-    // 	}
-    // }
-
     @Override
     boolean isLegitMove(int i0, int j0, int i1, int j1) {
 
