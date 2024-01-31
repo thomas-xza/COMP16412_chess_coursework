@@ -63,9 +63,9 @@ class Pawn extends Piece{
 		    (
 		     (move_j == 1 && move_i == 0)  //  This will allow backwards moves...
 		     ||
-		     ( j0 == 1 && move_j == 2 && Board.hasPiece(i0, 2) == false )  //  This permits an edge case where opponent can make a double move towards end.
+		     ( i0 == 1 && move_i == 2 && Board.hasPiece(2, j0) == false )  //  This permits an edge case where opponent can make a double move towards end.
 		     ||
-		     ( j0 == 6 && move_j == 2 && Board.hasPiece(i0, 5) == false ) ) )
+		     ( i0 == 6 && move_i == 2 && Board.hasPiece(5, j0) == false ) ) )
 	    {
 
 	    legal_for_piece_type = true;
