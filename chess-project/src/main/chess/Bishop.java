@@ -23,20 +23,31 @@ class Bishop extends Piece{
 	}
 
 
+
     //  isLegitMove needs to check that:
     //    - move is legal within rules of chess
     //    - move is not zero
     //    - move does not land on piece of same player
     //    - move does not attempt to jump over another piece
-
-    //   The last condition is the hardest to check - it requires
-    //   checking the largest quantity of squares, especially for long
-    //   distance pieces with multiple potential directions.
     
-    //   Note that some code may be reusable across piece types - put
-    //   methods in Piece.java?
 
-    
+    // private boolean deduce_target_validity(int i1, int j1) {
+
+    // 	boolean target_exists = Board.hasPiece(i1, j1);
+
+    // 	boolean target_exists_opponent = false;
+
+    // 	//  Set variable if moving into opponent's piece.
+
+    // 	if (target_exists == true &&
+    // 	    (this.getColour() !=
+    // 	     Board.getPiece(i1,j1).getColour() ) ) {
+
+    // 	    target_exists_opponent = true;
+
+    // 	}
+    // }
+
     @Override
     boolean isLegitMove(int i0, int j0, int i1, int j1) {
 
@@ -48,21 +59,9 @@ class Bishop extends Piece{
 
 	boolean no_obstacles = true;
 
-	boolean target_exists = Board.hasPiece(i1, j1);
+	boolean target_valid = deduce_target_validity(i1, j1);
 
-	boolean target_exists_opponent = false;
-
-	//  Set variable if moving into opponent's piece.
-
-	if (target_exists == true &&
-	    (this.getColour() !=
-	     Board.getPiece(i1,j1).getColour() ) ) {
-
-	    target_exists_opponent = true;
-
-	}
-
-	//  Set variable if move legal for this piece type.
+	//  Set variable if final target legal for this piece type.
 
 	if (move_i == move_j &&
 	    move_i != 0 &&
@@ -71,6 +70,8 @@ class Bishop extends Piece{
 	    legal_for_piece_type = true;
 
 	}
+
+	//  Step towards final target, check for obstacles.
 
 	if ( legal_for_piece_type == true ) {
 
@@ -104,8 +105,7 @@ class Bishop extends Piece{
 
 	if ( legal_for_piece_type == true &&
 	     no_obstacles == true &&
-	     (target_exists == false ||
-	      target_exists_opponent == true) ) {
+	     target_valid == true ) {
 		
 	    return true;
 		
