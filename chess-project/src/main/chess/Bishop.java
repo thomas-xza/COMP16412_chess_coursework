@@ -48,7 +48,7 @@ class Bishop extends Piece{
 	//  Set variable if moving into opponent's piece.
 
 	if (target_exists == true &&
-	    (Board.getPiece(i0,j0).getColour() !=
+	    (this.getColour() !=
 	     Board.getPiece(i1,j1).getColour() ) ) {
 
 	    target_exists_opponent = true;
