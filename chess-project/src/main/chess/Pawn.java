@@ -61,7 +61,7 @@ class Pawn extends Piece{
 	} else if ( target_exists_opponent == false &&
 		    target_exists == false &&
 		    (
-		     (move_j == 1 && move_i == 0)  //  This will allow backwards moves...
+		     (move_i == 1 && move_j == 0)  //  This will allow backwards moves...
 		     ||
 		     ( i0 == 1 && move_i == 2 && Board.hasPiece(2, j0) == false )  //  This permits an edge case where opponent can make a double move towards end.
 		     ||
