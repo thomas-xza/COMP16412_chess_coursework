@@ -37,7 +37,7 @@ class Bishop extends Piece{
 
 	int move_i = Math.abs(i0 - i1);
 
-	int move_j = Math.abs(i0 - i1);
+	int move_j = Math.abs(j0 - j1);
 
 	boolean legal_for_piece_type = false;
 
