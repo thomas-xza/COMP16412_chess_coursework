@@ -69,8 +69,7 @@ class Bishop extends Piece{
 
 	if ( legal_for_piece_type == true &&
 	     (target_exists == false ||
-	      target_exists_opponent == true) )
-	     ) {
+	      target_exists_opponent == true) ) {
 		
 	    return true;
 		
