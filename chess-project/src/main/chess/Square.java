@@ -19,7 +19,7 @@ public class Square {
 		p=null;
 	}
 
-	private boolean hasPiece(){
+	public boolean hasPiece(){
 		return hasPiece;
 	}
 }
