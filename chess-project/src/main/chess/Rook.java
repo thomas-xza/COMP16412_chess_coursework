@@ -1,10 +1,10 @@
 package chess;
 
-class Rook extends Piece{
+public class Rook extends Piece{
 	private PieceColour colour;
 	private String symbol;
 
-	Rook(PieceColour pc){
+	public Rook(PieceColour pc){
 		if (pc.equals(PieceColour.WHITE)){
 			this.colour=PieceColour.WHITE;
 			this.symbol="♖";
@@ -22,7 +22,7 @@ class Rook extends Piece{
 		return colour;
 	}
 
-	boolean isLegitMove(int i0, int j0, int i1, int j1) {
+	public boolean isLegitMove(int i0, int j0, int i1, int j1) {
 		return true;
 	}
 }

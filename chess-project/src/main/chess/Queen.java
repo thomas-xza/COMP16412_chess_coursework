@@ -1,10 +1,10 @@
 package chess;
 
-class Queen extends Piece{
+public class Queen extends Piece{
 	private PieceColour colour;
 	private String symbol;
 
-	Queen(PieceColour pc){
+	public Queen(PieceColour pc){
 		if (pc.equals(PieceColour.WHITE)){
 			this.colour=PieceColour.WHITE;
 			this.symbol="♕";
@@ -23,7 +23,7 @@ class Queen extends Piece{
 	}
 
 	@Override
-	boolean isLegitMove(int i0, int j0, int i1, int j1) {
+	public boolean isLegitMove(int i0, int j0, int i1, int j1) {
 		return true;
 	}
 }

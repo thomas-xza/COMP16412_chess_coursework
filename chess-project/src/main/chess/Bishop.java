@@ -1,6 +1,6 @@
 package chess;
 
-class Bishop extends Piece{
+public class Bishop extends Piece{
 	private PieceColour colour;
 	private String symbol;
 
