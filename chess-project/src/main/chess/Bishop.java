@@ -4,7 +4,7 @@ class Bishop extends Piece{
 	private PieceColour colour;
 	private String symbol;
 
-	Bishop(PieceColour pc){
+	public Bishop(PieceColour pc){
 		if (pc.equals(PieceColour.WHITE)){
 			this.colour=PieceColour.WHITE;
 			this.symbol="♗";
@@ -31,7 +31,7 @@ class Bishop extends Piece{
     //    - move does not attempt to jump over another piece
     
     @Override
-    boolean isLegitMove(int i0, int j0, int i1, int j1) {
+    public boolean isLegitMove(int i0, int j0, int i1, int j1) {
 
 	int move_i = Math.abs(i0 - i1);
 
